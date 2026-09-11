@@ -157,8 +157,9 @@
 
   /* Comparison table */
   .table-scroll{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);}
-  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px;background:var(--card);}
-  th,td{padding:14px 16px;text-align:center;border-bottom:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:920px;background:var(--card);}
+  th,td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap;}
+  td:first-child{white-space:normal;}
   th{font-weight:600;font-size:13px;background:var(--bg-alt);}
   td:first-child,th:first-child{text-align:left;font-weight:500;}
   tr:last-child td{border-bottom:none;}
@@ -302,7 +303,7 @@
         <colgroup>
           <col>
           <col class="ours">
-          <col><col><col>
+          <col><col><col><col><col>
         </colgroup>
         <thead>
           <tr>
@@ -311,6 +312,8 @@
             <th>GoodNotes</th>
             <th>Notability</th>
             <th>Notion</th>
+            <th>Apple Notes</th>
+            <th>PDF Expert</th>
           </tr>
         </thead>
         <tbody>
@@ -320,6 +323,8 @@
             <td>Subscription</td>
             <td>Subscription</td>
             <td>Free tier / paid plans</td>
+            <td class="yes">Free</td>
+            <td>Subscription</td>
           </tr>
           <tr>
             <td>Works fully offline</td>
@@ -327,12 +332,16 @@
             <td class="yes">Yes</td>
             <td class="yes">Yes</td>
             <td class="no">No — cloud-based</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>No account required</td>
             <td class="ours yes">Yes</td>
             <td class="no">No</td>
             <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
             <td class="no">No</td>
           </tr>
           <tr>
@@ -341,6 +350,8 @@
             <td class="part">Own format</td>
             <td class="part">Own format</td>
             <td class="no">No PDF annotation</td>
+            <td class="part">Markup only</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>Built-in OCR for scans</td>
@@ -348,6 +359,8 @@
             <td class="no">No</td>
             <td class="no">No</td>
             <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>Dark mode inverts the actual pages</td>
@@ -355,11 +368,15 @@
             <td class="part">UI only — PDFs stay white</td>
             <td class="yes">Yes</td>
             <td class="part">UI only</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>On-device voice transcription</td>
             <td class="ours yes">Yes</td>
             <td class="part">Audio only</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
             <td class="yes">Yes</td>
             <td class="no">No</td>
           </tr>
@@ -369,6 +386,8 @@
             <td class="no">No</td>
             <td class="no">No</td>
             <td class="part">Side peek</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>AI exam-prep export</td>
@@ -376,6 +395,8 @@
             <td class="no">No</td>
             <td class="no">No</td>
             <td class="part">Manual only</td>
+            <td class="no">No</td>
+            <td class="part">Chat, no export</td>
           </tr>
           <tr>
             <td>Handwriting / stylus drawing</td>
@@ -383,10 +404,14 @@
             <td class="yes">Yes</td>
             <td class="yes">Yes</td>
             <td class="no">No</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
           </tr>
           <tr>
             <td>iPhone / iPad app</td>
             <td class="ours soon">Coming soon</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
             <td class="yes">Yes</td>
             <td class="yes">Yes</td>
             <td class="yes">Yes</td>
@@ -397,6 +422,8 @@
             <td>iPad / Mac / Windows</td>
             <td>iPad / Mac</td>
             <td>Everywhere</td>
+            <td>iPhone / iPad / Mac</td>
+            <td>iOS / Mac / Windows / Android</td>
           </tr>
         </tbody>
       </table>
