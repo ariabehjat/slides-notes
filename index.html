@@ -172,9 +172,15 @@
 
   /* Comparison table */
   .wrap-wide{max-width:1280px;margin:0 auto;padding-inline:24px;}
+  /* The table fits without scrolling at desktop widths now (wrap-wide is
+     wider than the table's min-width) — only worth the hint on mobile,
+     where it still genuinely scrolls. */
   .scroll-hint{
-    text-align:center;font-size:12.5px;color:var(--text-secondary);
+    display:none;text-align:center;font-size:12.5px;color:var(--text-secondary);
     margin:0 0 10px;
+  }
+  @media (max-width:640px){
+    .scroll-hint{display:block;}
   }
   .table-scroll{
     position:relative;overflow-x:auto;-webkit-overflow-scrolling:touch;
