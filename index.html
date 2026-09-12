@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Slides & Notes — Your lecture slides, actually yours</title>
-<meta name="description" content="Highlights stay real PDF annotations, not a proprietary format. Auto-OCR turns messy scans into AI-ready exam prep from what you actually highlighted. 100% offline, free, no account.">
+<meta name="description" content="Highlights stay real PDF annotations, not a proprietary format. Notes sit right beside your PDF, not drawn on top. Auto-OCR turns scans into AI-ready exam prep — 100% offline, free, no account.">
 <link rel="icon" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Your lecture slides, actually yours.">
-<meta property="og:description" content="Highlights stay real PDF annotations. Auto-OCR turns scans into AI-ready exam prep. 100% offline, free, no account.">
+<meta property="og:description" content="Highlights stay real PDF annotations. Notes sit right beside your PDF. Auto-OCR turns scans into AI-ready exam prep — offline, free, no account.">
 <meta property="og:image" content="https://ariabehjat.github.io/slides-notes/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ariabehjat.github.io/slides-notes/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Your lecture slides, actually yours.">
-<meta name="twitter:description" content="Highlights stay real PDF annotations. Auto-OCR turns scans into AI-ready exam prep. 100% offline, free, no account.">
+<meta name="twitter:description" content="Highlights stay real PDF annotations. Notes sit right beside your PDF. Auto-OCR turns scans into AI-ready exam prep — offline, free, no account.">
 <meta name="twitter:image" content="https://ariabehjat.github.io/slides-notes/assets/og.jpg">
 <style>
   :root{
@@ -171,7 +171,7 @@
   .privacy p{max-width:560px;margin:0 auto;color:var(--text-secondary);font-size:18px;line-height:1.55;}
 
   /* Comparison table */
-  .wrap-wide{max-width:1120px;margin:0 auto;padding-inline:24px;}
+  .wrap-wide{max-width:1280px;margin:0 auto;padding-inline:24px;}
   .scroll-hint{
     text-align:center;font-size:12.5px;color:var(--text-secondary);
     margin:0 0 10px;
@@ -197,7 +197,7 @@
      scrolls as one plain block — slower to compare the far columns against
      the row label, but nothing renders incorrectly. The edge fade + hint
      text below still make it obvious there's more to scroll to. */
-  table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:760px;background:var(--card);}
+  table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:860px;background:var(--card);}
   /* white-space:nowrap here was the other real bug: table-layout:fixed gives
      every column a hard width, so a longer string ("UI only — PDFs stay
      white", "Annotation list only"...) had nowhere to go but visually
@@ -209,17 +209,39 @@
   td:first-child,th:first-child{text-align:left;font-weight:500;}
   tr:last-child td{box-shadow:none;}
 
-  col:first-child{width:128px;}
+  col:first-child{width:200px;}
   td:nth-child(2),th:nth-child(2){background:color-mix(in srgb, var(--accent) 8%, var(--card));}
   th:nth-child(2){background:color-mix(in srgb, var(--accent) 10%, var(--bg-alt));color:var(--accent);}
 
   .yes{color:#2ba84a;font-weight:700;}
   .no{color:var(--text-secondary);}
   .part{color:#c98a1e;font-weight:600;}
+
+  /* First column stays put on mobile — safe to bring back now that the
+     actual causes of the earlier "overlap" bug (the edge-fade width and
+     white-space:nowrap forcing text past its own cell) are fixed; those
+     were never actually caused by position:sticky itself. */
   @media (max-width:640px){
-    table{font-size:12.5px;min-width:660px;}
+    table{font-size:12.5px;min-width:700px;}
     th,td{padding:10px 9px;}
-    col:first-child{width:104px;}
+    col:first-child{width:128px;}
+    th:first-child,td:first-child{
+      position:sticky;left:0;z-index:2;background:var(--card);
+      box-shadow:inset 0 -1px 0 var(--border), inset -1px 0 0 var(--border);
+    }
+    tr:last-child td:first-child{box-shadow:inset -1px 0 0 var(--border);}
+    th:first-child{z-index:3;background:var(--bg-alt);}
+
+    /* Plain-boolean cells ("Yes" / "No" with no extra qualifying text, e.g.
+       not "No — cloud-based") collapse to a check or dash — nothing marked
+       .part (custom text like "Own format") is touched, since that wording
+       carries information a checkmark can't. */
+    .bool .txt{display:none;}
+    .bool::before{
+      display:inline-block;font-size:16px;font-weight:800;line-height:1;
+    }
+    .bool.yes::before{content:"✓";color:#2ba84a;}
+    .bool.no::before{content:"–";color:var(--text-secondary);}
   }
   .table-legend{
     display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
@@ -263,7 +285,7 @@
 <header class="hero" id="top">
   <img class="icon" src="assets/icon-512.png" alt="Slides & Notes app icon">
   <h1>Your lecture slides,<br>actually yours.</h1>
-  <p class="tagline">Highlight PDFs, run OCR on bad scans, keep rich notes and voice recordings — entirely on your Mac. No account, no cloud, no subscription.</p>
+  <p class="tagline">Highlight PDFs, keep notes right beside them — not drawn on top — and turn scans into AI-ready exam prep. Entirely on your Mac. No account, no cloud, no subscription.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://github.com/ariabehjat/slides-notes/releases/latest/download/Slides.Notes.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
@@ -297,8 +319,8 @@
 
       <div class="card">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h3>Rich, page-aware notes</h3>
-        <p>A full A4 note editor per document, plus notes pinned to individual pages that fade in and out as you scroll — with a one-tap way to see them all.</p>
+        <h3>Notes live right beside your PDF</h3>
+        <p>Not drawn on top of the page or buried in a separate app — a real panel next to it, with a full A4 document note plus notes pinned to individual pages that fade in and out as you scroll.</p>
       </div>
 
       <div class="card">
@@ -387,101 +409,101 @@
           </tr>
           <tr>
             <td>Works fully offline</td>
-            <td class="ours yes">Yes</td>
-            <td class="yes">Yes</td>
-            <td class="yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="no">No — cloud-based</td>
-            <td class="yes">Yes</td>
-            <td class="yes">Yes</td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>No account required</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
-            <td class="no">No</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
           </tr>
           <tr>
             <td>Highlights saved into the real PDF</td>
-            <td class="ours yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
             <td class="part">Own format</td>
             <td class="part">Own format</td>
             <td class="no">No PDF annotation</td>
             <td class="part">Markup only</td>
-            <td class="yes">Yes</td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>Page-specific notes</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>Whole-document note</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="part">Mixed into the note</td>
-            <td class="no">No</td>
+            <td class="no bool"><span class="txt">No</span></td>
           </tr>
           <tr>
             <td>Notes panel beside the PDF, not on top</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Manual layout</td>
-            <td class="no">No</td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Annotation list only</td>
           </tr>
           <tr>
             <td>Built-in OCR for scans</td>
             <td class="ours yes">Yes, automatic</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>Dark mode inverts the actual pages</td>
-            <td class="ours yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
             <td class="part">UI only — PDFs stay white</td>
-            <td class="yes">Yes</td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="part">UI only</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>On-device voice transcription</td>
-            <td class="ours yes">Yes</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
             <td class="part">Audio only</td>
-            <td class="yes">Yes</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
-            <td class="no">No</td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
           </tr>
           <tr>
             <td>Browser-style split view</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Side peek</td>
-            <td class="no">No</td>
-            <td class="yes">Yes</td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>AI exam-prep export</td>
-            <td class="ours yes">Yes</td>
-            <td class="no">No</td>
-            <td class="no">No</td>
+            <td class="ours yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Manual only</td>
-            <td class="no">No</td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Chat, no export</td>
           </tr>
         </tbody>
