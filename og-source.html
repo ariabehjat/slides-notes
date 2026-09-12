@@ -1,0 +1,56 @@
+<!--
+  Source for assets/og.jpg (the Open Graph / Twitter Card share image).
+  Rendered at 2x (2400x1260) via an offscreen WKWebView snapshot, then
+  downsampled to 1200x630 and exported as JPEG — same rendering approach as
+  dmg/make-background.swift. To regenerate after editing the tagline below:
+  render this file to a PNG at 2400x1260, `sips -z 630 1200` it down, then
+  `sips -s format jpeg -s formatOptions 85` to get assets/og.jpg.
+-->
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;}
+  .canvas{
+    width:1200px;height:630px;position:relative;overflow:hidden;
+    background:linear-gradient(155deg,#0d2233 0%,#1d5480 45%,#3f7794 100%);
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  }
+  .dots{
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.10) 1.5px, transparent 1.5px);
+    background-size:26px 26px;
+  }
+  .content{
+    position:relative;z-index:1;
+    display:flex;align-items:center;height:100%;
+    padding:0 76px;gap:56px;
+  }
+  .icon{width:260px;height:260px;flex:none;filter:drop-shadow(0 30px 50px rgba(0,0,0,.35));}
+  .text h1{
+    color:#ffffff;font-size:60px;font-weight:700;letter-spacing:-.02em;
+    line-height:1.08;margin:0 0 18px;
+  }
+  .text p{
+    color:rgba(255,255,255,.85);font-size:25px;font-weight:500;
+    line-height:1.4;margin:0 0 14px;max-width:660px;
+  }
+  .text p.sub{
+    color:rgba(255,255,255,.6);font-size:19px;font-weight:600;
+    letter-spacing:.01em;margin:0;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="dots"></div>
+  <div class="content">
+    <img class="icon" src="assets/icon-512.png">
+    <div class="text">
+      <h1>Slides &amp; Notes</h1>
+      <p>PDFs, notes, and audio transcripts — all at a glance.</p>
+      <p class="sub">100% free · 100% offline · 100% yours</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
