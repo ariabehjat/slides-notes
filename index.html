@@ -203,7 +203,7 @@
      scrolls as one plain block — slower to compare the far columns against
      the row label, but nothing renders incorrectly. The edge fade + hint
      text below still make it obvious there's more to scroll to. */
-  table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:860px;background:var(--card);}
+  table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:960px;background:var(--card);}
   /* white-space:nowrap here was the other real bug: table-layout:fixed gives
      every column a hard width, so a longer string ("UI only — PDFs stay
      white", "Annotation list only"...) had nowhere to go but visually
@@ -228,7 +228,7 @@
      white-space:nowrap forcing text past its own cell) are fixed; those
      were never actually caused by position:sticky itself. */
   @media (max-width:640px){
-    table{font-size:12.5px;min-width:700px;}
+    table{font-size:12.5px;min-width:780px;}
     th,td{padding:10px 9px;}
     col:first-child{width:128px;}
     th:first-child,td:first-child{
@@ -384,13 +384,13 @@
     <p class="lede">Not trying to replace a full note-taking app — just to do PDF study material better, and for free.</p>
   </div>
   <div class="wrap-wide">
-    <p class="scroll-hint">Scroll sideways to compare all six ↔</p>
+    <p class="scroll-hint">Scroll sideways to compare all seven ↔</p>
     <div class="table-scroll">
       <table>
         <colgroup>
           <col>
           <col class="ours">
-          <col><col><col><col><col>
+          <col><col><col><col><col><col>
         </colgroup>
         <thead>
           <tr>
@@ -401,6 +401,7 @@
             <th>Notion</th>
             <th>Apple Notes</th>
             <th>PDF Expert</th>
+            <th>Obsidian</th>
           </tr>
         </thead>
         <tbody>
@@ -412,6 +413,7 @@
             <td>Free tier / paid plans</td>
             <td class="yes">Free</td>
             <td>Subscription</td>
+            <td class="yes">Free</td>
           </tr>
           <tr>
             <td>Works fully offline</td>
@@ -419,6 +421,7 @@
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="no">No — cloud-based</td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
@@ -430,6 +433,7 @@
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>Highlights saved into the real PDF</td>
@@ -439,6 +443,7 @@
             <td class="no">No PDF annotation</td>
             <td class="part">Markup only</td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="part">Plugin, sidecar file</td>
           </tr>
           <tr>
             <td>Page-specific notes</td>
@@ -448,6 +453,7 @@
             <td class="no bool"><span class="txt">No</span></td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="part">Plugin required</td>
           </tr>
           <tr>
             <td>Whole-document note</td>
@@ -457,6 +463,7 @@
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="part">Mixed into the note</td>
             <td class="no bool"><span class="txt">No</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>Notes panel beside the PDF, not on top</td>
@@ -466,6 +473,7 @@
             <td class="part">Manual layout</td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Annotation list only</td>
+            <td class="part">Manual pane setup</td>
           </tr>
           <tr>
             <td>Built-in OCR for scans</td>
@@ -475,6 +483,7 @@
             <td class="no bool"><span class="txt">No</span></td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
           </tr>
           <tr>
             <td>Dark mode inverts the actual pages</td>
@@ -484,6 +493,7 @@
             <td class="part">UI only</td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="part">UI only</td>
           </tr>
           <tr>
             <td>On-device voice transcription</td>
@@ -492,6 +502,7 @@
             <td class="yes bool"><span class="txt">Yes</span></td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="no bool"><span class="txt">No</span></td>
             <td class="no bool"><span class="txt">No</span></td>
           </tr>
           <tr>
@@ -502,6 +513,7 @@
             <td class="part">Side peek</td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="yes bool"><span class="txt">Yes</span></td>
+            <td class="yes bool"><span class="txt">Yes</span></td>
           </tr>
           <tr>
             <td>AI exam-prep export</td>
@@ -511,6 +523,7 @@
             <td class="part">Manual only</td>
             <td class="no bool"><span class="txt">No</span></td>
             <td class="part">Chat, no export</td>
+            <td class="no bool"><span class="txt">No</span></td>
           </tr>
         </tbody>
       </table>
